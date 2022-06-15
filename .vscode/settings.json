@@ -1,0 +1,12 @@
+{
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"editor.formatOnSave": true, // 保存自动格式化
+	"prettier.requireConfig": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"prettier.tabWidth": 2, // 缩进字节数
+	"prettier.useTabs": true, // 缩进使用tab
+	"prettier.singleQuote": true, // 使用单引号代替双引号
+	"files.associations": {
+		"*.svg": "html"
+	}
+}
