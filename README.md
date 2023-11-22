@@ -31,7 +31,7 @@ yarn add webpack webpack-cli -D
 
 ```js
 const temporary = () => {
-	console.log('test react webpack cli');
+  console.log('test react webpack cli');
 };
 
 temporary();
@@ -55,36 +55,36 @@ const devConfig = require('./webpack.dev.config.js');
 const proConfig = require('./webpack.pro.config.js');
 
 const config = {
-	mode: 'production', // 模式
-	entry: path.resolve(__dirname, '../src/index.js'), // 入口文件
-	output: {
-		filename: 'static/js/[name].[contenthash:8].js', // 输入文件名
-		path: path.resolve(__dirname, '../build'), // 输入路径
-		clean: true, // 清空原打包文件
-	},
+  mode: 'production', // 模式
+  entry: path.resolve(__dirname, '../src/index.js'), // 入口文件
+  output: {
+    filename: 'static/js/[name].[contenthash:8].js', // 输入文件名
+    path: path.resolve(__dirname, '../build'), // 输入路径
+    clean: true, // 清空原打包文件
+  },
 };
 
 module.exports = (env, argv) => {
-	// 开发环境
-	if (argv.mode === 'development') {
-		return merge(config, devConfig);
-	}
-	// 生产环境
-	if (argv.mode === 'production') {
-		return merge(config, proConfig);
-	}
+  // 开发环境
+  if (argv.mode === 'development') {
+    return merge(config, devConfig);
+  }
+  // 生产环境
+  if (argv.mode === 'production') {
+    return merge(config, proConfig);
+  }
 };
 
 // webpack.dev.config.js
 module.exports = {
-	mode: 'development',
-	devtool: 'cheap-module-source-map',
+  mode: 'development',
+  devtool: 'cheap-module-source-map',
 };
 
 // webpack.pro.config.js
 module.exports = {
-	mode: 'production',
-	devtool: 'source-map',
+  mode: 'production',
+  devtool: 'source-map',
 };
 ```
 
@@ -92,11 +92,11 @@ module.exports = {
 
 ```json
 {
-	"scripts": {
-		"build:dev": "webpack --config ./config/webpack.config.js --mode=development",
-		"build:pro": "webpack --config ./config/webpack.config.js --mode=production",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	}
+  "scripts": {
+    "build:dev": "webpack --config ./config/webpack.config.js --mode=development",
+    "build:pro": "webpack --config ./config/webpack.config.js --mode=production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
 ```
 
@@ -111,18 +111,18 @@ module.exports = {
   ```html
   <!DOCTYPE html>
   <html lang="en">
-  	<head>
-  		<meta charset="utf-8" />
-  		<link rel="icon" href="favicon.ico" />
-  		<meta name="viewport" content="width=device-width, initial-scale=1" />
-  		<meta name="theme-color" content="#000000" />
-  		<meta name="description" content="react-lowcode-manage" />
-  		<title>react-webpack-cli</title>
-  	</head>
-  	<body>
-  		<noscript>运行该应用，需要启动浏览器对 JavaScript 的支持</noscript>
-  		<div id="root"></div>
-  	</body>
+    <head>
+      <meta charset="utf-8" />
+      <link rel="icon" href="favicon.ico" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="theme-color" content="#000000" />
+      <meta name="description" content="react-lowcode-manage" />
+      <title>react-webpack-cli</title>
+    </head>
+    <body>
+      <noscript>运行该应用，需要启动浏览器对 JavaScript 的支持</noscript>
+      <div id="root"></div>
+    </body>
   </html>
   ```
 
@@ -212,18 +212,18 @@ module.exports = {
 
      ```js
      module: {
-     	rules: [
-     		{
-     			test: /\.(js|mjs|jsx|ts|tsx)$/i,
-     			include: path.resolve(__dirname, '../src'),
-     			use: {
-     				loader: 'babel-loader',
-     				options: {
-     					presets: ['@babel/preset-env'],
-     				},
-     			},
-     		},
-     	];
+       rules: [
+         {
+           test: /\.(js|mjs|jsx|ts|tsx)$/i,
+           include: path.resolve(__dirname, '../src'),
+           use: {
+             loader: 'babel-loader',
+             options: {
+               presets: ['@babel/preset-env'],
+             },
+           },
+         },
+       ];
      }
      ```
 
@@ -237,13 +237,13 @@ module.exports = {
 
   ```js
   module: {
-  	rules: [
-  		// 使用ts
-  		{
-  			test: /\.ts$/i,
-  			use: ['ts-loader'],
-  		},
-  	];
+    rules: [
+      // 使用ts
+      {
+        test: /\.ts$/i,
+        use: ['ts-loader'],
+      },
+    ];
   }
   ```
 
@@ -251,24 +251,24 @@ module.exports = {
 
   ```json
   {
-  	"compilerOptions": {
-  		"target": "es5",
-  		"lib": ["dom", "dom.iterable", "esnext"],
-  		"allowJs": true,
-  		"skipLibCheck": true,
-  		"esModuleInterop": true,
-  		"allowSyntheticDefaultImports": true,
-  		"strict": true,
-  		"forceConsistentCasingInFileNames": true,
-  		"noFallthroughCasesInSwitch": true,
-  		"module": "esnext",
-  		"moduleResolution": "node",
-  		"resolveJsonModule": true,
-  		"isolatedModules": true,
-  		"noEmit": true,
-  		"jsx": "react-jsx"
-  	},
-  	"include": ["src"]
+    "compilerOptions": {
+      "target": "es5",
+      "lib": ["dom", "dom.iterable", "esnext"],
+      "allowJs": true,
+      "skipLibCheck": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "noFallthroughCasesInSwitch": true,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "noEmit": true,
+      "jsx": "react-jsx"
+    },
+    "include": ["src"]
   }
   ```
 
@@ -282,18 +282,18 @@ module.exports = {
 
   ```js
   module: {
-  	rules: [
-  		{
-  			test: /\.(js|mjs|jsx|ts|tsx)$/i,
-  			include: path.resolve(__dirname, '../src'),
-  			use: {
-  				loader: 'babel-loader',
-  				options: {
-  					presets: ['@babel/preset-env', '@babel/preset-react'],
-  				},
-  			},
-  		},
-  	];
+    rules: [
+      {
+        test: /\.(js|mjs|jsx|ts|tsx)$/i,
+        include: path.resolve(__dirname, '../src'),
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
+      },
+    ];
   }
   ```
 
@@ -309,10 +309,10 @@ module.exports = {
 
   ```json
   {
-  	"tabWidth": 2,
-  	"useTabs": true,
-  	"singleQuote": true,
-  	"semi": true
+    "tabWidth": 2,
+    "useTabs": true,
+    "singleQuote": true,
+    "semi": true
   }
   ```
 
@@ -320,8 +320,8 @@ module.exports = {
 
   ```json
   {
-  	"typescript.tsdk": "node_modules/typescript/lib",
-  	"editor.formatOnSave": true // 保存自动格式化
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "editor.formatOnSave": true // 保存自动格式化
   }
   ```
 
